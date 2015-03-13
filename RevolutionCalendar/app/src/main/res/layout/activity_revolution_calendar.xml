@@ -1,12 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".RevolutionCalendar">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".RevolutionCalendar">
 
     <include
         android:id="@+id/revolutionary_toolbar"
         layout="@layout/toolbar"></include>
+
+    <com.software.shell.fab.ActionButton
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/revolutionary_toolbar"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-30dp"
+        android:layout_marginRight="20dp"
+        fab:type="DEFAULT"
+        fab:button_color="@color/accent"
+        fab:button_colorPressed="@color/dark_accent"
+        fab:image="@drawable/fab_plus_icon"
+        fab:image_size="24dp"
+
+        fab:show_animation="@anim/fab_roll_from_right"
+        fab:hide_animation="@anim/fab_roll_to_right"
+        android:elevation="6dp"
+        />
+
 
 </RelativeLayout>

@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.software.shell.fab.ActionButton;
+
 
 public class RevolutionCalendar extends ActionBarActivity {
 
@@ -15,6 +17,11 @@ public class RevolutionCalendar extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_revolution_calendar);
+
+
+        // And then find it within the content view:
+        ActionButton actionButton = (ActionButton) findViewById(R.id.action_button);
+        actionButton.playShowAnimation();
 
         toolbar = (Toolbar) findViewById(R.id.revolutionary_toolbar);
         setSupportActionBar(toolbar);
