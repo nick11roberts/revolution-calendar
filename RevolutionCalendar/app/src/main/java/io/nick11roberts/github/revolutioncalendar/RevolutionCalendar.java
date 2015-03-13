@@ -1,8 +1,11 @@
 package io.nick11roberts.github.revolutioncalendar;
 
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,22 +14,24 @@ import com.software.shell.fab.ActionButton;
 
 public class RevolutionCalendar extends ActionBarActivity {
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_revolution_calendar);
 
-
-        // And then find it within the content view:
         ActionButton actionButton = (ActionButton) findViewById(R.id.action_button);
         actionButton.playShowAnimation();
 
+        Typeface font = Typeface.createFromAsset(getAssets(),"fonts/LeagueScript.otf");
+        SpannableString s = new SpannableString(getResources().getString(R.string.app_name));
+        s.setSpan(new CustomTypefaceSpan("LeagueScript.otf", font), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         toolbar = (Toolbar) findViewById(R.id.revolutionary_toolbar);
+        toolbar.setTitle(s);
         setSupportActionBar(toolbar);
-
-
     }
 
 
@@ -45,9 +50,11 @@ public class RevolutionCalendar extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
         }
+        */
 
         return super.onOptionsItemSelected(item);
     }
